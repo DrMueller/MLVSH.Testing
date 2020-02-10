@@ -17,10 +17,11 @@ jobs:
   displayName: 'Build and publish Visual Studio Solution'
   pool:
     name: Azure Pipelines
+    vmImage: windows-2019
     demands:
     - msbuild
     - visualstudio
-    
+
   steps:
   - template: AzureDevOps/BuildTemplates/NetFramework/Steps/Initialize_And_Test.yaml@ALMStuff
     parameters:
