@@ -20,6 +20,7 @@ jobs:
     demands:
     - msbuild
     - visualstudio
+    
   steps:
   - template: AzureDevOps/BuildTemplates/NetFramework/Steps/Initialize_And_Test.yaml@ALMStuff
     parameters:
