@@ -3,6 +3,7 @@ name: 1.0$(rev:.r) # build numbering format
 variables:
   BuildConfiguration: 'Release'
   SolutionName: 'MLVSH.Testing.sln'
+  WorkingDirectory: '$(Build.ArtifactStagingDirectory)/Dist'
   
 resources:
   repositories:
@@ -24,3 +25,8 @@ jobs:
     parameters:
       BuildConfiguration: $(BuildConfiguration)
       SolutionName: $(SolutionName)
+      BuildOutputPath: $(WorkingDirectory)
+  - template: AzureDevOps/BuildTemplates/NetFramework/Steps/Publish_To_Marketplace.yaml@ALMStuff
+    parameters:
+      ManifestJsonPath: 'Sources/Application/extension-manifest.json'
+      WorkingDirectory: $(WorkingDirectory)
