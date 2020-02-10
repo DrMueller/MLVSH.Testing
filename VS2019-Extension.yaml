@@ -14,7 +14,7 @@ resources:
 
 jobs:
 - job: 'BuildAndPublishToNuGet'
-  displayName: 'Build and publish to NuGet'
+  displayName: 'Build and publish Visual Studio Solution'
   pool:
     name: Azure Pipelines
     demands:
