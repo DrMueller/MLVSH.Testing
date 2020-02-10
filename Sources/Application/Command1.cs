@@ -12,15 +12,14 @@ namespace Mmu.Mlvsh.Testing.Application
         public static readonly Guid CommandSet = new Guid("10fae917-d775-4c64-8010-943c2f6a0572");
         private readonly AsyncPackage _package;
         public static Command1 Instance { get; private set; }
-        private Microsoft.VisualStudio.Shell.IAsyncServiceProvider ServiceProvider => _package;
 
         private Command1(AsyncPackage package, OleMenuCommandService commandService)
         {
             _package = package ?? throw new ArgumentNullException(nameof(package));
             commandService = commandService ?? throw new ArgumentNullException(nameof(commandService));
 
-            var menuCommandID = new CommandID(CommandSet, CommandId);
-            var menuItem = new MenuCommand(Execute, menuCommandID);
+            var menuCommandId = new CommandID(CommandSet, CommandId);
+            var menuItem = new MenuCommand(Execute, menuCommandId);
             commandService.AddCommand(menuItem);
         }
 
