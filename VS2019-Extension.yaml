@@ -1,0 +1,27 @@
+name: 1.0$(rev:.r) # build numbering format
+
+variables:
+  BuildConfiguration: 'Release'
+  SolutionName: 'MLVSH.Testing.sln'
+  
+resources:
+  repositories:
+  - repository: ALMStuff
+    type: github
+    name: DrMueller/ALMStuff
+    ref: refs/heads/master
+    endpoint: GitHub-DrMueller
+
+jobs:
+- job: 'BuildAndPublishToNuGet'
+  displayName: 'Build and publish to NuGet'
+  pool:
+    name: Azure Pipelines
+    demands:
+    - msbuild
+    - visualstudio
+  steps:
+  - template: AzureDevOps/BuildTemplates/NetFramework/Steps/Initialize_And_Test.yaml@ALMStuff
+    parameters:
+      BuildConfiguration: $(BuildConfiguration)
+      SolutionName: $(SolutionName)
