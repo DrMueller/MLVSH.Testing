@@ -4,6 +4,8 @@
         <Identity Id="Mmu.Mlvsh.Testing.Application.18cedfa6-a3d5-4d46-b512-b8c5e44f3215" Version="1.0" Language="en-US" Publisher="Matthias Müller" />
         <DisplayName>MLSVH.Testing</DisplayName>
         <Description xml:space="preserve">DrMuellers little Visual Studio Testing Helpers</Description>
+        <MoreInfo>https://github.com/DrMueller/MLVSH.Testing</MoreInfo>
+        <Icon>Infrastructure\Assets\M.png</Icon>
     </Metadata>
     <Installation>
         <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[16.0, 17.0)" />
