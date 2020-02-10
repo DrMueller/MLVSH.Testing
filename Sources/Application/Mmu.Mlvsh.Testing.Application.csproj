@@ -57,6 +57,7 @@
     <Compile Include="ApplicationPackage.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="extension-manifest.json" />
     <None Include="Key.snk" />
     <None Include="source.extension.vsixmanifest">
       <SubType>Designer</SubType>
