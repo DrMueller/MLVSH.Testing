@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.Design;
 using System.Globalization;
+using EnvDTE;
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
 
@@ -11,8 +12,12 @@ namespace Mmu.Mlvsh.Testing.Application
         private const int CommandId = 0x0100;
         private static readonly Guid _commandSet = new Guid("10fae917-d775-4c64-8010-943c2f6a0572");
         private readonly AsyncPackage _package;
-        // ReSharper disable once UnusedAutoPropertyAccessor.Local
+
+#pragma warning disable SA1515 // Single-line comment must be preceded by blank line
+
+// ReSharper disable once UnusedAutoPropertyAccessor.Local
         private static Command1 Instance { get; set; }
+#pragma warning restore SA1515 // Single-line comment must be preceded by blank line
 
         private Command1(AsyncPackage package, OleMenuCommandService commandService)
         {
@@ -45,14 +50,14 @@ namespace Mmu.Mlvsh.Testing.Application
                 OLEMSGBUTTON.OLEMSGBUTTON_OK,
                 OLEMSGDEFBUTTON.OLEMSGDEFBUTTON_FIRST);
 
-            var dte = (EnvDTE.DTE)await _package.GetServiceAsync(typeof(EnvDTE.DTE));
+            var dte = (DTE)await _package.GetServiceAsync(typeof(DTE));
             var selectedItems = dte.SelectedItems;
 
             if (selectedItems != null)
             {
-                foreach (EnvDTE.SelectedItem selectedItem in selectedItems)
+                foreach (SelectedItem selectedItem in selectedItems)
                 {
-                    if (selectedItem.ProjectItem is EnvDTE.ProjectItem projectItem)
+                    if (selectedItem.ProjectItem is ProjectItem projectItem)
                     {
                         message = $"Called on {projectItem.Name}";
 
