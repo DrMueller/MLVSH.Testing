@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 
 namespace Mmu.Mlvsh.Testing.Application.Areas.UnitTests.Services.Implementation
 {
@@ -10,6 +6,8 @@ namespace Mmu.Mlvsh.Testing.Application.Areas.UnitTests.Services.Implementation
     {
         public Task InitializeAsync(string filePath)
         {
+            // Read File Info
+
             // Create File Structure
             // Create _sut variable
             // Find original file
@@ -18,7 +16,6 @@ namespace Mmu.Mlvsh.Testing.Application.Areas.UnitTests.Services.Implementation
             // instance all mock variables
             // Instance the Sut variable
             // Create one test with AAA comments
-
             return null;
         }
     }
