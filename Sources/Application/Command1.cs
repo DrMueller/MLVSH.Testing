@@ -31,9 +31,9 @@ namespace Mmu.Mlvsh.Testing.Application
             Instance = new Command1(package, commandService);
         }
 
-        private void Execute(object sender, EventArgs e)
+        private async void Execute(object sender, EventArgs e)
         {
-            ThreadHelper.ThrowIfNotOnUIThread();
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(_package.DisposalToken);
             var message = string.Format(CultureInfo.CurrentCulture, "Inside {0}.MenuItemCallback()", GetType().FullName);
             const string Title = "Command1";
 
@@ -44,6 +44,29 @@ namespace Mmu.Mlvsh.Testing.Application
                 OLEMSGICON.OLEMSGICON_INFO,
                 OLEMSGBUTTON.OLEMSGBUTTON_OK,
                 OLEMSGDEFBUTTON.OLEMSGDEFBUTTON_FIRST);
+
+            var dte = (EnvDTE.DTE)await _package.GetServiceAsync(typeof(EnvDTE.DTE));
+            var selectedItems = dte.SelectedItems;
+
+            if (selectedItems != null)
+            {
+                foreach (EnvDTE.SelectedItem selectedItem in selectedItems)
+                {
+                    if (selectedItem.ProjectItem is EnvDTE.ProjectItem projectItem)
+                    {
+                        message = $"Called on {projectItem.Name}";
+
+                        // Show a message box to prove we were here
+                        VsShellUtilities.ShowMessageBox(
+                            _package,
+                            message,
+                            "Trea",
+                            OLEMSGICON.OLEMSGICON_INFO,
+                            OLEMSGBUTTON.OLEMSGBUTTON_OK,
+                            OLEMSGDEFBUTTON.OLEMSGDEFBUTTON_FIRST);
+                    }
+                }
+            }
         }
     }
 }
