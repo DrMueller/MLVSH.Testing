@@ -1,4 +1,4 @@
-name: 1.0$(rev:.r) # build numbering format
+name: 1.0.0$(rev:.r) # Important: VSIX needs exactly 4 digits
 
 variables:
   BuildConfiguration: 'Release'

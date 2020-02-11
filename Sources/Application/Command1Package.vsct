@@ -6,7 +6,7 @@
   <Commands package="guidCommand1Package">
     <Groups>
       <Group guid="guidCommand1PackageCmdSet" id="MyMenuGroup" priority="0x0600">
-        <Parent guid="guidSHLMainMenu" id="IDM_VS_MENU_TOOLS"/>
+        <Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_ITEMNODE"/>
       </Group>
     </Groups>
 
@@ -25,9 +25,7 @@
       <Bitmap guid="guidImages" href="Resources\Command1.png" usedList="bmpPic1, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows, bmpPicStrikethrough"/>
     </Bitmaps>
   </Commands>
-
-
-
+  
 
   <Symbols>
     <GuidSymbol name="guidCommand1Package" value="{8d60f11b-33c1-4362-b00f-fa9d0ee069c7}" />
