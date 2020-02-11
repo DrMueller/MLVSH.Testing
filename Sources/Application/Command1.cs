@@ -8,17 +8,18 @@ namespace Mmu.Mlvsh.Testing.Application
 {
     internal sealed class Command1
     {
-        public const int CommandId = 0x0100;
-        public static readonly Guid CommandSet = new Guid("10fae917-d775-4c64-8010-943c2f6a0572");
+        private const int CommandId = 0x0100;
+        private static readonly Guid _commandSet = new Guid("10fae917-d775-4c64-8010-943c2f6a0572");
         private readonly AsyncPackage _package;
-        public static Command1 Instance { get; private set; }
+        // ReSharper disable once UnusedAutoPropertyAccessor.Local
+        private static Command1 Instance { get; set; }
 
         private Command1(AsyncPackage package, OleMenuCommandService commandService)
         {
             _package = package ?? throw new ArgumentNullException(nameof(package));
             commandService = commandService ?? throw new ArgumentNullException(nameof(commandService));
 
-            var menuCommandId = new CommandID(CommandSet, CommandId);
+            var menuCommandId = new CommandID(_commandSet, CommandId);
             var menuItem = new MenuCommand(Execute, menuCommandId);
             commandService.AddCommand(menuItem);
         }
@@ -34,12 +35,12 @@ namespace Mmu.Mlvsh.Testing.Application
         {
             ThreadHelper.ThrowIfNotOnUIThread();
             var message = string.Format(CultureInfo.CurrentCulture, "Inside {0}.MenuItemCallback()", GetType().FullName);
-            var title = "Command1";
+            const string Title = "Command1";
 
             VsShellUtilities.ShowMessageBox(
                 _package,
                 message,
-                title,
+                Title,
                 OLEMSGICON.OLEMSGICON_INFO,
                 OLEMSGBUTTON.OLEMSGBUTTON_OK,
                 OLEMSGDEFBUTTON.OLEMSGDEFBUTTON_FIRST);
