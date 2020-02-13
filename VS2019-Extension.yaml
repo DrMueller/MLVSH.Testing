@@ -2,7 +2,6 @@ name: 1.0$(rev:.r) # Important: VSIX needs exactly 3digits
 
 variables:
   BuildConfiguration: 'Release'
-  SolutionName: 'MLVSH.Testing.sln'
   WorkingDirectory: '$(Build.ArtifactStagingDirectory)/Dist'
   ManifestJsonPath: 'Sources/Application/extension-manifest.json'
   

@@ -2,3 +2,9 @@
 2. Add possibility to configure test project
 3. Put file on the right place
 4. Icon und Text anpassen
+5. AppendSetupMethod refactoren
+
+# Fragen
+
+- Usings ausserhalb der Klasse
+- Leerschlag nach _sut Feld

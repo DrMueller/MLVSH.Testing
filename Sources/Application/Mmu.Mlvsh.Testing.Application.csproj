@@ -58,8 +58,12 @@
     <Compile Include="Areas\UnitTests\TestClasses\Models\UsingEntry.cs" />
     <Compile Include="Areas\UnitTests\TestClasses\Services\Implementation\UnitTestFileInitializer.cs" />
     <Compile Include="Areas\UnitTests\TestClasses\Services\IUnitTestFileInitializer.cs" />
+    <Compile Include="Areas\UnitTests\TestClasses\Services\Servants\IClassBuilder.cs" />
     <Compile Include="Areas\UnitTests\TestClasses\Services\Servants\IClassInformationFactory.cs" />
+    <Compile Include="Areas\UnitTests\TestClasses\Services\Servants\Implementation\ClassBuilder.cs" />
     <Compile Include="Areas\UnitTests\TestClasses\Services\Servants\Implementation\ClassInformationFactory.cs" />
+    <Compile Include="Areas\UnitTests\TestClasses\Services\Servants\Implementation\NamespaceFactory.cs" />
+    <Compile Include="Areas\UnitTests\TestClasses\Services\Servants\INamespaceFactory.cs" />
     <Compile Include="Areas\UnitTests\TestConfiguration\Models\Frameworks\Nunit.cs" />
     <Compile Include="Areas\UnitTests\TestConfiguration\Models\Frameworks\Xunit.cs" />
     <Compile Include="Areas\UnitTests\TestConfiguration\Models\TestAttribute.cs" />
