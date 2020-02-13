@@ -1,15 +1,20 @@
 ﻿using System;
 
-namespace Mmu.Mlvsh.Testing.Application.Areas.UnitTests.Models
+namespace Mmu.Mlvsh.Testing.Application.Areas.UnitTests.TestClasses.Models
 {
     public class UsingEntry : IComparable<UsingEntry>
     {
         public bool IsSystemUsing => Value.ToLowerInvariant().StartsWith("system.");
         public string Value { get; }
 
-        public UsingEntry(string value)
+        private UsingEntry(string value)
         {
             Value = value;
+        }
+
+        public static UsingEntry CreateFrom(string value)
+        {
+            return new UsingEntry(value);
         }
 
         public int CompareTo(UsingEntry other)

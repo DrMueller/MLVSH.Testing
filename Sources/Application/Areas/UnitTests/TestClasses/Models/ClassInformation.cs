@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace Mmu.Mlvsh.Testing.Application.Areas.UnitTests.Models
+namespace Mmu.Mlvsh.Testing.Application.Areas.UnitTests.TestClasses.Models
 {
     public class ClassInformation
     {
@@ -23,9 +23,8 @@ namespace Mmu.Mlvsh.Testing.Application.Areas.UnitTests.Models
             _usingEntries = usingEntries;
         }
 
-        public void AppendUsing(string value)
+        public void AppendUsing(UsingEntry usingEntry)
         {
-            var usingEntry = new UsingEntry(value);
             _usingEntries.Add(usingEntry);
         }
     }

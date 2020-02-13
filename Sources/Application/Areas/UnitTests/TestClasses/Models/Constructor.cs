@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
-namespace Mmu.Mlvsh.Testing.Application.Areas.UnitTests.Models
+
+namespace Mmu.Mlvsh.Testing.Application.Areas.UnitTests.TestClasses.Models
 {
     public class Constructor
     {

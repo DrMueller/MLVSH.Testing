@@ -2,9 +2,9 @@
 using System.Linq;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Mmu.Mlvsh.Testing.Application.Areas.UnitTests.Models;
+using Mmu.Mlvsh.Testing.Application.Areas.UnitTests.TestClasses.Models;
 
-namespace Mmu.Mlvsh.Testing.Application.Areas.UnitTests.Services.Servants.Implementation
+namespace Mmu.Mlvsh.Testing.Application.Areas.UnitTests.TestClasses.Services.Servants.Implementation
 {
     public class ClassInformationFactory : IClassInformationFactory
     {
@@ -28,7 +28,7 @@ namespace Mmu.Mlvsh.Testing.Application.Areas.UnitTests.Services.Servants.Implem
                 .Name
                 .ToString();
 
-            var className = classDeclaration.Identifier.Text;
+            var className = classDeclaration?.Identifier.Text;
             var ctorDeclarations = root.DescendantNodes().OfType<ConstructorDeclarationSyntax>();
             var ctors = ctorDeclarations.Select(
                 ctorDecl =>
@@ -50,7 +50,7 @@ namespace Mmu.Mlvsh.Testing.Application.Areas.UnitTests.Services.Servants.Implem
             var usingEntries = root
                 .DescendantNodes()
                 .OfType<UsingDirectiveSyntax>()
-                .Select(f => new UsingEntry(f.Name.ToString()))
+                .Select(f => UsingEntry.CreateFrom(f.Name.ToString()))
                 .ToList();
 
             var classInfo = new ClassInformation(className, fullNamespace, ctors.First(), usingEntries);

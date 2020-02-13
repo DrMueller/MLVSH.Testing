@@ -1,4 +1,5 @@
 ﻿using System.IO.Abstractions;
+using Mmu.Mlvsh.Testing.Application.Areas.UnitTests.TestConfiguration.Models;
 using StructureMap.Configuration.DSL;
 
 namespace Mmu.Mlvsh.Testing.Application.Infrastructure.DependencyInjection
@@ -11,6 +12,7 @@ namespace Mmu.Mlvsh.Testing.Application.Infrastructure.DependencyInjection
                 scanner =>
                 {
                     scanner.AssemblyContainingType<ApplicationRegistry>();
+                    scanner.AddAllTypesOf<ITestFramework>();
                     scanner.WithDefaultConventions();
                 });
 

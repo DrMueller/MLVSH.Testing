@@ -2,7 +2,7 @@
 using System.ComponentModel.Design;
 using EnvDTE;
 using Microsoft.VisualStudio.Shell;
-using Mmu.Mlvsh.Testing.Application.Areas.UnitTests.Services;
+using Mmu.Mlvsh.Testing.Application.Areas.UnitTests.TestClasses.Services;
 using Mmu.Mlvsh.Testing.Application.Infrastructure.DependencyInjection;
 
 namespace Mmu.Mlvsh.Testing.Application
@@ -57,7 +57,7 @@ namespace Mmu.Mlvsh.Testing.Application
 
                 var filePath = projectItem.FileNames[0];
                 var service = ApplicationServiceLocator.GetService<IUnitTestFileInitializer>();
-                await service.InitializeAsync(filePath);
+                service.Initialize(filePath);
             }
         }
     }

@@ -1,0 +1,3 @@
+﻿1. Refactor
+2. Add possibility to configure test project
+3. Put file on the right place
