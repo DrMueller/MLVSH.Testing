@@ -1,5 +1,4 @@
-﻿using Mmu.Mlh.LanguageExtensions.Areas.Invariance;
-
+﻿
 namespace Mmu.Mlvsh.Testing.Application.Areas.UnitTests.Models
 {
     public class Parameter
@@ -9,9 +8,6 @@ namespace Mmu.Mlvsh.Testing.Application.Areas.UnitTests.Models
 
         public Parameter(string parameterType, string parameterName)
         {
-            Guard.StringNotNullOrEmpty(() => parameterType);
-            Guard.StringNotNullOrEmpty(() => parameterName);
-
             ParameterType = parameterType;
             ParameterName = parameterName;
         }

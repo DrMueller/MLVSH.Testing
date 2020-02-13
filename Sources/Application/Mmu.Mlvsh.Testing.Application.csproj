@@ -52,15 +52,19 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Areas\UnitTests\Models\ClassInfo.cs" />
+    <Compile Include="Areas\UnitTests\Models\ClassInformation.cs" />
     <Compile Include="Areas\UnitTests\Models\Constructor.cs" />
     <Compile Include="Areas\UnitTests\Models\Parameter.cs" />
+    <Compile Include="Areas\UnitTests\Models\UsingEntry.cs" />
     <Compile Include="Areas\UnitTests\Services\Implementation\UnitTestFileInitializer.cs" />
     <Compile Include="Areas\UnitTests\Services\IUnitTestFileInitializer.cs" />
-    <Compile Include="Areas\UnitTests\Services\Servants\IClassInfoFactory.cs" />
+    <Compile Include="Areas\UnitTests\Services\Servants\IClassInformationFactory.cs" />
+    <Compile Include="Areas\UnitTests\Services\Servants\Implementation\ClassInformationFactory.cs" />
     <Compile Include="Command1.cs" />
     <Compile Include="Command1Package.cs" />
     <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="Infrastructure\DependencyInjection\ApplicationRegistry.cs" />
+    <Compile Include="Infrastructure\DependencyInjection\ApplicationServiceLocator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ApplicationPackage.cs" />
   </ItemGroup>
@@ -81,10 +85,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Microsoft.CodeAnalysis">
+      <Version>3.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.CodeAnalysis.Common">
+      <Version>3.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp">
+      <Version>3.0.0</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.SDK" Version="16.0.202" ExcludeAssets="runtime" />
     <PackageReference Include="Microsoft.VSSDK.BuildTools" Version="16.4.1057" />
-    <PackageReference Include="Mmu.Mlh.ServiceProvisioning">
-      <Version>2.1.1</Version>
+    <PackageReference Include="structuremap-signed">
+      <Version>3.1.9.463</Version>
+    </PackageReference>
+    <PackageReference Include="System.IO.Abstractions">
+      <Version>6.0.32</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>

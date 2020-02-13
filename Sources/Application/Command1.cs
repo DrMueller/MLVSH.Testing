@@ -1,9 +1,9 @@
 ﻿using System;
 using System.ComponentModel.Design;
-using System.Globalization;
 using EnvDTE;
 using Microsoft.VisualStudio.Shell;
-using Microsoft.VisualStudio.Shell.Interop;
+using Mmu.Mlvsh.Testing.Application.Areas.UnitTests.Services;
+using Mmu.Mlvsh.Testing.Application.Infrastructure.DependencyInjection;
 
 namespace Mmu.Mlvsh.Testing.Application
 {
@@ -39,38 +39,25 @@ namespace Mmu.Mlvsh.Testing.Application
         private async void Execute(object sender, EventArgs e)
         {
             await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(_package.DisposalToken);
-            var message = string.Format(CultureInfo.CurrentCulture, "Inside {0}.MenuItemCallback()", GetType().FullName);
-            const string Title = "Command1";
-
-            VsShellUtilities.ShowMessageBox(
-                _package,
-                message,
-                Title,
-                OLEMSGICON.OLEMSGICON_INFO,
-                OLEMSGBUTTON.OLEMSGBUTTON_OK,
-                OLEMSGDEFBUTTON.OLEMSGDEFBUTTON_FIRST);
 
             var dte = (DTE)await _package.GetServiceAsync(typeof(DTE));
             var selectedItems = dte.SelectedItems;
 
-            if (selectedItems != null)
+            if (selectedItems == null)
             {
-                foreach (SelectedItem selectedItem in selectedItems)
-                {
-                    if (selectedItem.ProjectItem is ProjectItem projectItem)
-                    {
-                        message = $"Called on {projectItem.Name}";
+                return;
+            }
 
-                        // Show a message box to prove we were here
-                        VsShellUtilities.ShowMessageBox(
-                            _package,
-                            message,
-                            "Trea",
-                            OLEMSGICON.OLEMSGICON_INFO,
-                            OLEMSGBUTTON.OLEMSGBUTTON_OK,
-                            OLEMSGDEFBUTTON.OLEMSGDEFBUTTON_FIRST);
-                    }
+            foreach (SelectedItem selectedItem in selectedItems)
+            {
+                if (!(selectedItem.ProjectItem is ProjectItem projectItem))
+                {
+                    continue;
                 }
+
+                var filePath = projectItem.FileNames[0];
+                var service = ApplicationServiceLocator.GetService<IUnitTestFileInitializer>();
+                await service.InitializeAsync(filePath);
             }
         }
     }
