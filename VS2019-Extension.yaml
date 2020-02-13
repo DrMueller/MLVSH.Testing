@@ -4,6 +4,7 @@ variables:
   BuildConfiguration: 'Release'
   SolutionName: 'MLVSH.Testing.sln'
   WorkingDirectory: '$(Build.ArtifactStagingDirectory)/Dist'
+  ManifestJsonPath: 'Sources/Application/extension-manifest.json'
   
 resources:
   repositories:
@@ -46,6 +47,6 @@ jobs:
     displayName: 'Publish VSIX'
     inputs:
       UploadTo: Marketplace
-      PublishManifest: $(ManifestJson)
+      PublishManifest: $(ManifestJsonPath)
       PersonalAccessToken: $(PublishToken)
       WorkingDirectory: $(WorkingDirectory)
