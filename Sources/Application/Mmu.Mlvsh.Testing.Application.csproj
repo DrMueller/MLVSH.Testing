@@ -52,27 +52,31 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Areas\UnitTests\TestClasses\Models\ClassInformation.cs" />
-    <Compile Include="Areas\UnitTests\TestClasses\Models\Constructor.cs" />
-    <Compile Include="Areas\UnitTests\TestClasses\Models\Parameter.cs" />
-    <Compile Include="Areas\UnitTests\TestClasses\Models\UsingEntry.cs" />
-    <Compile Include="Areas\UnitTests\TestClasses\Services\Implementation\UnitTestFileInitializer.cs" />
-    <Compile Include="Areas\UnitTests\TestClasses\Services\IUnitTestFileInitializer.cs" />
-    <Compile Include="Areas\UnitTests\TestClasses\Services\Servants\IClassBuilder.cs" />
-    <Compile Include="Areas\UnitTests\TestClasses\Services\Servants\IClassInformationFactory.cs" />
-    <Compile Include="Areas\UnitTests\TestClasses\Services\Servants\Implementation\ClassBuilder.cs" />
-    <Compile Include="Areas\UnitTests\TestClasses\Services\Servants\Implementation\ClassInformationFactory.cs" />
-    <Compile Include="Areas\UnitTests\TestClasses\Services\Servants\Implementation\NamespaceFactory.cs" />
-    <Compile Include="Areas\UnitTests\TestClasses\Services\Servants\INamespaceFactory.cs" />
-    <Compile Include="Areas\UnitTests\TestConfiguration\Models\Frameworks\Nunit.cs" />
-    <Compile Include="Areas\UnitTests\TestConfiguration\Models\Frameworks\Xunit.cs" />
-    <Compile Include="Areas\UnitTests\TestConfiguration\Models\TestAttribute.cs" />
-    <Compile Include="Areas\UnitTests\TestConfiguration\Models\TestClassSetup.cs" />
-    <Compile Include="Areas\UnitTests\TestConfiguration\Models\ITestFramework.cs" />
-    <Compile Include="Areas\UnitTests\TestConfiguration\Models\TestClassSetupType.cs" />
-    <Compile Include="Areas\UnitTests\TestConfiguration\Models\TestFrameworkType.cs" />
-    <Compile Include="Areas\UnitTests\TestConfiguration\Services\Implementation\TestFrameworkFactory.cs" />
-    <Compile Include="Areas\UnitTests\TestConfiguration\Services\ITestFrameworkFactory.cs" />
+    <Compile Include="Areas\UnitTests\ClassWriting\Orchestration\Services\Implementation\UnitTestClassWriter.cs" />
+    <Compile Include="Areas\UnitTests\ClassWriting\Orchestration\Services\IUnitTestClassWriter.cs" />
+    <Compile Include="Areas\UnitTests\ClassWriting\SubAreas\ClassContentCreation\Services\IClassContentFactory.cs" />
+    <Compile Include="Areas\UnitTests\ClassWriting\SubAreas\ClassContentCreation\Services\Implementation\ClassContentFactory.cs" />
+    <Compile Include="Areas\UnitTests\ClassWriting\SubAreas\ClassInformations\Models\ClassInformation.cs" />
+    <Compile Include="Areas\UnitTests\ClassWriting\SubAreas\ClassInformations\Models\Constructor.cs" />
+    <Compile Include="Areas\UnitTests\ClassWriting\SubAreas\ClassInformations\Models\Parameter.cs" />
+    <Compile Include="Areas\UnitTests\ClassWriting\SubAreas\ClassInformations\Models\UsingEntry.cs" />
+    <Compile Include="Areas\UnitTests\ClassWriting\SubAreas\ClassContentCreation\Services\Servants\IClassBuilder.cs" />
+    <Compile Include="Areas\UnitTests\ClassWriting\SubAreas\ClassInformations\Services\IClassInformationFactory.cs" />
+    <Compile Include="Areas\UnitTests\ClassWriting\SubAreas\ClassContentCreation\Services\Servants\Implementation\ClassBuilder.cs" />
+    <Compile Include="Areas\UnitTests\ClassWriting\SubAreas\ClassInformations\Services\Implementation\ClassInformationFactory.cs" />
+    <Compile Include="Areas\UnitTests\ClassWriting\SubAreas\TestConfigurations\Models\TestConfiguration.cs" />
+    <Compile Include="Areas\UnitTests\ClassWriting\SubAreas\TestConfigurations\Services\Implementation\TestConfigurationFactory.cs" />
+    <Compile Include="Areas\UnitTests\ClassWriting\SubAreas\TestConfigurations\Services\ITestConfigurationFactory.cs" />
+    <Compile Include="Areas\UnitTests\ClassWriting\SubAreas\TestConfigurations\YamlDtos\TestConfigurationDto.cs" />
+    <Compile Include="Areas\UnitTests\ClassWriting\SubAreas\TestFileWriting\Models\TestClassFile.cs" />
+    <Compile Include="Areas\UnitTests\ClassWriting\SubAreas\TestFileWriting\Services\Implementation\TestFileWriter.cs" />
+    <Compile Include="Areas\UnitTests\ClassWriting\SubAreas\TestFileWriting\Services\ITestFileWriter.cs" />
+    <Compile Include="Areas\UnitTests\ClassWriting\SubAreas\TestFrameworks\Models\Frameworks\Nunit.cs" />
+    <Compile Include="Areas\UnitTests\ClassWriting\SubAreas\TestFrameworks\Models\Frameworks\Xunit.cs" />
+    <Compile Include="Areas\UnitTests\ClassWriting\SubAreas\TestFrameworks\Models\TestAttribute.cs" />
+    <Compile Include="Areas\UnitTests\ClassWriting\SubAreas\TestFrameworks\Models\TestClassSetup.cs" />
+    <Compile Include="Areas\UnitTests\ClassWriting\SubAreas\TestFrameworks\Models\ITestFramework.cs" />
+    <Compile Include="Areas\UnitTests\ClassWriting\SubAreas\TestFrameworks\Models\TestClassSetupType.cs" />
     <Compile Include="Command1.cs" />
     <Compile Include="Command1Package.cs" />
     <Compile Include="GlobalSuppressions.cs" />
@@ -114,6 +118,9 @@
     </PackageReference>
     <PackageReference Include="System.IO.Abstractions">
       <Version>6.0.32</Version>
+    </PackageReference>
+    <PackageReference Include="YamlDotNet">
+      <Version>8.1.0</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>

@@ -1,5 +1,5 @@
 ﻿using System.IO.Abstractions;
-using Mmu.Mlvsh.Testing.Application.Areas.UnitTests.TestConfiguration.Models;
+using Mmu.Mlvsh.Testing.Application.Areas.UnitTests.ClassWriting.SubAreas.TestFrameworks.Models;
 using StructureMap.Configuration.DSL;
 
 namespace Mmu.Mlvsh.Testing.Application.Infrastructure.DependencyInjection
