@@ -36,7 +36,9 @@ namespace Mmu.Mlvsh.Testing.Application.Areas.UnitTests.ClassWriting.Orchestrati
             Instance = new CreateUnitTestClassCommand(package, commandService);
         }
 
+#pragma warning disable VSTHRD100 // Avoid async void methods
         private async void Execute(object sender, EventArgs e)
+#pragma warning restore VSTHRD100 // Avoid async void methods
         {
             await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(_package.DisposalToken);
 
