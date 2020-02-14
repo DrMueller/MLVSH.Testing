@@ -134,7 +134,13 @@
   <data name="112" xml:space="preserve">
     <value>Command1 Visual Studio Extension Detailed Info</value>
   </data>
-  <data name="400" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\Command1Package.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="1110" xml:space="preserve">
+    <value>CreateUnitTestClassCommand Extension</value>
+  </data>
+  <data name="1112" xml:space="preserve">
+    <value>CreateUnitTestClassCommand Visual Stuido Extension Detailed Info</value>
+  </data>
+  <data name="1400" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Areas\UnitTests\ClassWriting\Orchestration\Commands\Resources\CreateUnitTestClassCommandPackage.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

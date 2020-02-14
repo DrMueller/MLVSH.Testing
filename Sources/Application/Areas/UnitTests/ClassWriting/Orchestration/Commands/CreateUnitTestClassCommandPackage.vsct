@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <Extern href="stdidcmd.h"/>
+  <Extern href="vsshlids.h"/>
+
+  <Commands package="guidCreateUnitTestClassCommandPackage">
+    <Groups>
+      <Group guid="guidCreateUnitTestClassCommandPackageCmdSet" id="MyMenuGroup" priority="0x0600">
+        <Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_ITEMNODE"/>
+      </Group>
+    </Groups>
+
+    <Buttons>
+      <Button guid="guidCreateUnitTestClassCommandPackageCmdSet" id="CreateUnitTestClassCommandId" priority="0x0100" type="Button">
+        <Parent guid="guidCreateUnitTestClassCommandPackageCmdSet" id="MyMenuGroup" />
+        <Icon guid="guidImages" id="bmpPic1" />
+        <Strings>
+          <ButtonText>Create Unit-Test Class File..</ButtonText>
+        </Strings>
+      </Button>
+    </Buttons>
+
+    <Bitmaps>
+      <Bitmap guid="guidImages" href="Resources\CreateUnitTestClassCommand.png" usedList="bmpPic1"/>
+    </Bitmaps>
+  </Commands>
+
+  <Symbols>
+    <GuidSymbol name="guidCreateUnitTestClassCommandPackage" value="{0b41d893-b68e-487e-87b5-fb2312499274}" />
+
+    <GuidSymbol name="guidCreateUnitTestClassCommandPackageCmdSet" value="{4ce333ee-828f-4b5c-8f08-5910a1366b80}">
+      <IDSymbol name="MyMenuGroup" value="0x1020" />
+      <IDSymbol name="CreateUnitTestClassCommandId" value="0x0100" />
+    </GuidSymbol>
+
+    <GuidSymbol name="guidImages" value="{e1daa25f-79f8-42b6-b220-2bd786557fc0}" >
+      <IDSymbol name="bmpPic1" value="1" />
+    </GuidSymbol>
+  </Symbols>
+</CommandTable>

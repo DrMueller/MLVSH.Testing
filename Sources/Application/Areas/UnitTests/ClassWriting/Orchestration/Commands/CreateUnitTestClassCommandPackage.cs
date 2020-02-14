@@ -1,23 +1,21 @@
 ﻿using System;
-using System.Diagnostics.CodeAnalysis;
 using System.Runtime.InteropServices;
 using System.Threading;
 using Microsoft.VisualStudio.Shell;
 
-namespace Mmu.Mlvsh.Testing.Application
+namespace Mmu.Mlvsh.Testing.Application.Areas.UnitTests.ClassWriting.Orchestration.Commands
 {
     [PackageRegistration(UseManagedResourcesOnly = true, AllowsBackgroundLoading = true)]
-    [ProvideMenuResource("Menus.ctmenu", 1)]
+    [ProvideMenuResource("Menus1.ctmenu", 1)]
     [Guid(PackageGuidString)]
-    [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "pkgdef, VS and vsixmanifest are valid VS terms")]
-    public sealed class Command1Package : AsyncPackage
+    public sealed class CreateUnitTestClassCommandPackage : AsyncPackage
     {
-        private const string PackageGuidString = "8d60f11b-33c1-4362-b00f-fa9d0ee069c7";
+        private const string PackageGuidString = "0b41d893-b68e-487e-87b5-fb2312499274";
 
         protected override async System.Threading.Tasks.Task InitializeAsync(CancellationToken cancellationToken, IProgress<ServiceProgressData> progress)
         {
             await JoinableTaskFactory.SwitchToMainThreadAsync(cancellationToken);
-            await Command1.InitializeAsync(this);
+            await CreateUnitTestClassCommand.InitializeAsync(this);
         }
     }
 }

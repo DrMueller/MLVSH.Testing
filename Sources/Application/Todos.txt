@@ -1,6 +1,0 @@
-﻿4. Icon und Text anpassen
-
-# Issues
-
-- Usings ausserhalb der Klasse
-- Leerschlag nach _sut Feld
