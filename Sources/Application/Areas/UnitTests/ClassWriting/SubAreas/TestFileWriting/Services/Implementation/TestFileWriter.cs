@@ -23,7 +23,7 @@ namespace Mmu.Mlvsh.Testing.Application.Areas.UnitTests.ClassWriting.SubAreas.Te
         {
             var fileName = classInfo.ClassName + "UnitTests.cs";
 
-            var relativeNamespace = classInfo.NamespaceDecl.Replace(testConfig.BaseNamespace, string.Empty);
+            var relativeNamespace = classInfo.NamespaceDecl.Replace(testConfig.ApplicationProjectBaseNamespace, string.Empty);
 
             var namespaceParts = relativeNamespace.Split(new[] { '.' }, StringSplitOptions.RemoveEmptyEntries);
             var namespaceQueue = new Queue<string>(namespaceParts);

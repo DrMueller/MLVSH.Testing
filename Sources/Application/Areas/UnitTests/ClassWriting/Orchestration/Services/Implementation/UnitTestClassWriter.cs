@@ -28,7 +28,7 @@ namespace Mmu.Mlvsh.Testing.Application.Areas.UnitTests.ClassWriting.Orchestrati
         {
             var testConfig = _testConfigFactory.Create(selectedProjectName);
             var classInfo = _classInfoFactory.Create(fileToTestPath);
-            var classContent = _classContentFactory.CreateContent(classInfo, testConfig.TestFramework);
+            var classContent = _classContentFactory.CreateContent(classInfo, testConfig);
             _testFileWriter.WriteToTestLocation(testConfig, classInfo, classContent);
         }
     }

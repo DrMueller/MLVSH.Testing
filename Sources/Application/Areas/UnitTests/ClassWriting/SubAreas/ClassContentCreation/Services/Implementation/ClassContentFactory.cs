@@ -3,6 +3,7 @@ using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Mmu.Mlvsh.Testing.Application.Areas.UnitTests.ClassWriting.SubAreas.ClassContentCreation.Services.Servants;
 using Mmu.Mlvsh.Testing.Application.Areas.UnitTests.ClassWriting.SubAreas.ClassInformations.Models;
+using Mmu.Mlvsh.Testing.Application.Areas.UnitTests.ClassWriting.SubAreas.TestConfigurations.Models;
 using Mmu.Mlvsh.Testing.Application.Areas.UnitTests.ClassWriting.SubAreas.TestFrameworks.Models;
 
 namespace Mmu.Mlvsh.Testing.Application.Areas.UnitTests.ClassWriting.SubAreas.ClassContentCreation.Services.Implementation
@@ -16,19 +17,19 @@ namespace Mmu.Mlvsh.Testing.Application.Areas.UnitTests.ClassWriting.SubAreas.Cl
             _classBuilder = classBuilder;
         }
 
-        public string CreateContent(ClassInformation classInfo, ITestFramework testFramework)
+        public string CreateContent(ClassInformation classInfo, TestConfiguration testConfig)
         {
-            var cls = _classBuilder.Initialize(classInfo, testFramework)
+            var cls = _classBuilder.Initialize(classInfo, testConfig.TestFramework)
                 .AppendFields()
                 .AppendSetupMethod()
                 .AppendExamplaryMethod()
                 .Build();
 
-            var nameSpace = CreateNamespace(classInfo);
+            var nameSpace = CreateNamespace(classInfo, testConfig);
             nameSpace = nameSpace.AddMembers(cls);
 
             var syntaxFactory = SyntaxFactory.CompilationUnit();
-            syntaxFactory = AppendUsings(syntaxFactory, classInfo, testFramework);
+            syntaxFactory = AppendUsings(syntaxFactory, classInfo, testConfig.TestFramework);
             syntaxFactory = syntaxFactory.AddMembers(nameSpace);
 
             var classContent = syntaxFactory
@@ -38,10 +39,15 @@ namespace Mmu.Mlvsh.Testing.Application.Areas.UnitTests.ClassWriting.SubAreas.Cl
             return classContent;
         }
 
-        private static NamespaceDeclarationSyntax CreateNamespace(ClassInformation classInfo)
+        private static NamespaceDeclarationSyntax CreateNamespace(ClassInformation classInfo, TestConfiguration testConfig)
         {
+            var relativeNamespacePart = classInfo
+                .NamespaceDecl
+                .Replace(testConfig.ApplicationProjectBaseNamespace, string.Empty);
+
+            var nameSpace = testConfig.TestProjectBaseNamespace + relativeNamespacePart;
             var ns = SyntaxFactory
-                .NamespaceDeclaration(SyntaxFactory.ParseName(classInfo.NamespaceDecl))
+                .NamespaceDeclaration(SyntaxFactory.ParseName(nameSpace))
                 .NormalizeWhitespace();
 
             return ns;
@@ -54,10 +60,14 @@ namespace Mmu.Mlvsh.Testing.Application.Areas.UnitTests.ClassWriting.SubAreas.Cl
         {
             classInfo.AppendUsing(UsingEntry.CreateFrom("Moq"));
             classInfo.AppendUsing(testFramework.UsingEntry);
+            classInfo.AppendUsing(UsingEntry.CreateFrom(classInfo.NamespaceDecl));
 
             foreach (var usingName in classInfo.SortedUsingEntries)
             {
-                syntaxFactory = syntaxFactory.AddUsings(SyntaxFactory.UsingDirective(SyntaxFactory.ParseName(usingName.Value)));
+                syntaxFactory = syntaxFactory
+                    .AddUsings(
+                        SyntaxFactory.UsingDirective(
+                            SyntaxFactory.ParseName(usingName.Value)));
             }
 
             return syntaxFactory;

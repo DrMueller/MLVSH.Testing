@@ -2,8 +2,9 @@
 {
     public class TestConfigurationDto
     {
-        public string BaseNamespace { get; set; }
+        public string ApplicationProjectBaseNamespace { get; set; }
         public string TestFrameworkName { get; set; }
+        public string TestProjectBaseNamespace { get; set; }
         public string TestProjectBasePath { get; set; }
     }
 }

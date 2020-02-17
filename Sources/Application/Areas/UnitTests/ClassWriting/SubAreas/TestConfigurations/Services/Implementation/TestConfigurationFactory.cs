@@ -31,7 +31,8 @@ namespace Mmu.Mlvsh.Testing.Application.Areas.UnitTests.ClassWriting.SubAreas.Te
 
             var config = new TestConfiguration(
                 testFramework,
-                testConfigDto.BaseNamespace,
+                testConfigDto.ApplicationProjectBaseNamespace,
+                testConfigDto.TestProjectBaseNamespace,
                 testConfigDto.TestProjectBasePath);
 
             return config;
