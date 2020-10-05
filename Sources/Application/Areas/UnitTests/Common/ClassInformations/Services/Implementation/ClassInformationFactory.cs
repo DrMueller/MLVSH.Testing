@@ -4,7 +4,7 @@ using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Mmu.Mlvsh.Testing.Application.Areas.UnitTests.ClassWriting.SubAreas.ClassInformations.Models;
 
-namespace Mmu.Mlvsh.Testing.Application.Areas.UnitTests.ClassWriting.SubAreas.ClassInformations.Services.Implementation
+namespace Mmu.Mlvsh.Testing.Application.Areas.UnitTests.Common.ClassInformations.Services.Implementation
 {
     public class ClassInformationFactory : IClassInformationFactory
     {
@@ -21,7 +21,11 @@ namespace Mmu.Mlvsh.Testing.Application.Areas.UnitTests.ClassWriting.SubAreas.Cl
             var tree = CSharpSyntaxTree.ParseText(fileContent);
             var root = tree.GetRoot();
 
-            var classDeclaration = root.DescendantNodes().OfType<ClassDeclarationSyntax>().FirstOrDefault();
+            var classDeclaration = root
+                .DescendantNodes()
+                .OfType<ClassDeclarationSyntax>()
+                .FirstOrDefault();
+
             var fullNamespace = root
                 .DescendantNodes()
                 .OfType<NamespaceDeclarationSyntax>().First()

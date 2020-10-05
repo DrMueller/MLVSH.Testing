@@ -58,14 +58,8 @@
     <Compile Include="Areas\UnitTests\ClassWriting\Orchestration\Services\IUnitTestClassWriter.cs" />
     <Compile Include="Areas\UnitTests\ClassWriting\SubAreas\ClassContentCreation\Services\IClassContentFactory.cs" />
     <Compile Include="Areas\UnitTests\ClassWriting\SubAreas\ClassContentCreation\Services\Implementation\ClassContentFactory.cs" />
-    <Compile Include="Areas\UnitTests\ClassWriting\SubAreas\ClassInformations\Models\ClassInformation.cs" />
-    <Compile Include="Areas\UnitTests\ClassWriting\SubAreas\ClassInformations\Models\Constructor.cs" />
-    <Compile Include="Areas\UnitTests\ClassWriting\SubAreas\ClassInformations\Models\Parameter.cs" />
-    <Compile Include="Areas\UnitTests\ClassWriting\SubAreas\ClassInformations\Models\UsingEntry.cs" />
     <Compile Include="Areas\UnitTests\ClassWriting\SubAreas\ClassContentCreation\Services\Servants\IClassBuilder.cs" />
-    <Compile Include="Areas\UnitTests\ClassWriting\SubAreas\ClassInformations\Services\IClassInformationFactory.cs" />
     <Compile Include="Areas\UnitTests\ClassWriting\SubAreas\ClassContentCreation\Services\Servants\Implementation\ClassBuilder.cs" />
-    <Compile Include="Areas\UnitTests\ClassWriting\SubAreas\ClassInformations\Services\Implementation\ClassInformationFactory.cs" />
     <Compile Include="Areas\UnitTests\ClassWriting\SubAreas\TestConfigurations\Models\TestConfiguration.cs" />
     <Compile Include="Areas\UnitTests\ClassWriting\SubAreas\TestConfigurations\Services\Implementation\TestConfigurationFactory.cs" />
     <Compile Include="Areas\UnitTests\ClassWriting\SubAreas\TestConfigurations\Services\ITestConfigurationFactory.cs" />
@@ -79,6 +73,18 @@
     <Compile Include="Areas\UnitTests\ClassWriting\SubAreas\TestFrameworks\Models\TestClassSetup.cs" />
     <Compile Include="Areas\UnitTests\ClassWriting\SubAreas\TestFrameworks\Models\ITestFramework.cs" />
     <Compile Include="Areas\UnitTests\ClassWriting\SubAreas\TestFrameworks\Models\TestClassSetupType.cs" />
+    <Compile Include="Areas\UnitTests\Common\ClassInformations\Models\ClassInformation.cs" />
+    <Compile Include="Areas\UnitTests\Common\ClassInformations\Models\Constructor.cs" />
+    <Compile Include="Areas\UnitTests\Common\ClassInformations\Models\Parameter.cs" />
+    <Compile Include="Areas\UnitTests\Common\ClassInformations\Models\UsingEntry.cs" />
+    <Compile Include="Areas\UnitTests\Common\ClassInformations\Services\IClassInformationFactory.cs" />
+    <Compile Include="Areas\UnitTests\Common\ClassInformations\Services\Implementation\ClassInformationFactory.cs" />
+    <Compile Include="Areas\UnitTests\SetupTestClass\Commands\SetupTestClassCommand.cs" />
+    <Compile Include="Areas\UnitTests\SetupTestClass\Commands\SetupTestClassCommandCommandPackage.cs" />
+    <Compile Include="Areas\UnitTests\SetupTestClass\Services\Implementation\TestClassSetupService.cs" />
+    <Compile Include="Areas\UnitTests\SetupTestClass\Services\ITestClassSetupService.cs" />
+    <Compile Include="Areas\UnitTests\SetupTestClass\Services\Servants\Implementation\TestSetupWriter.cs" />
+    <Compile Include="Areas\UnitTests\SetupTestClass\Services\Servants\ITestSetupWriter.cs" />
     <Compile Include="Infrastructure\DependencyInjection\ApplicationRegistry.cs" />
     <Compile Include="Infrastructure\DependencyInjection\ApplicationServiceLocator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -134,6 +140,9 @@
     </VSCTCompile>
     <Content Include="Areas\UnitTests\ClassWriting\Orchestration\Commands\Resources\CreateUnitTestClassCommand.png" />
     <Content Include="Areas\UnitTests\ClassWriting\Orchestration\Commands\Resources\CreateUnitTestClassCommandPackage.ico" />
+    <VSCTCompile Include="Areas\UnitTests\SetupTestClass\Commands\SetupTestClassCommandPackage.vsct" />
+    <Content Include="Areas\UnitTests\SetupTestClass\Commands\Resources\SetupTestClassCommand.png" />
+    <Content Include="Areas\UnitTests\SetupTestClass\Commands\Resources\SetupTestClassCommandPackage.ico" />
     <Content Include="Infrastructure\Assets\M.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
