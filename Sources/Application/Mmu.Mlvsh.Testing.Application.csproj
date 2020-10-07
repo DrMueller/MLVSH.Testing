@@ -80,7 +80,6 @@
     <Compile Include="Areas\UnitTests\Common\ClassInformations\Services\IClassInformationFactory.cs" />
     <Compile Include="Areas\UnitTests\Common\ClassInformations\Services\Implementation\ClassInformationFactory.cs" />
     <Compile Include="Areas\UnitTests\SetupTestClass\Commands\SetupTestClassCommand.cs" />
-    <Compile Include="Areas\UnitTests\SetupTestClass\Commands\SetupTestClassCommandCommandPackage.cs" />
     <Compile Include="Areas\UnitTests\SetupTestClass\Services\Implementation\TestClassSetupService.cs" />
     <Compile Include="Areas\UnitTests\SetupTestClass\Services\ITestClassSetupService.cs" />
     <Compile Include="Areas\UnitTests\SetupTestClass\Services\Servants\Implementation\TestSetupWriter.cs" />
@@ -140,9 +139,7 @@
     </VSCTCompile>
     <Content Include="Areas\UnitTests\ClassWriting\Orchestration\Commands\Resources\CreateUnitTestClassCommand.png" />
     <Content Include="Areas\UnitTests\ClassWriting\Orchestration\Commands\Resources\CreateUnitTestClassCommandPackage.ico" />
-    <VSCTCompile Include="Areas\UnitTests\SetupTestClass\Commands\SetupTestClassCommandPackage.vsct" />
     <Content Include="Areas\UnitTests\SetupTestClass\Commands\Resources\SetupTestClassCommand.png" />
-    <Content Include="Areas\UnitTests\SetupTestClass\Commands\Resources\SetupTestClassCommandPackage.ico" />
     <Content Include="Infrastructure\Assets\M.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>

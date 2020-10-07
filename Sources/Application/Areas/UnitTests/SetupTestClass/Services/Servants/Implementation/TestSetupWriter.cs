@@ -20,7 +20,7 @@ namespace Mmu.Mlvsh.Testing.Application.Areas.UnitTests.SetupTestClass.Services.
                 cls = cls.AddMembers(
                     CreatePrivateField($"Mock<{param.ParameterType}>", "_" + param.ParameterName));
             }
-
+            
             var ctor = CreateConstructor(classInfo);
             cls = cls.AddMembers(ctor);
 
@@ -41,7 +41,8 @@ namespace Mmu.Mlvsh.Testing.Application.Areas.UnitTests.SetupTestClass.Services.
                 statements.Add(
                     SyntaxFactory.ParseStatement($"_{ctorParam.ParameterName}= new Mock<{ctorParam.ParameterType}>();"));
             }
-
+            
+            sb.AppendLine();
             sb.AppendLine($"_sut = new {classInfo.ClassName}(");
 
             for (var i = 0; i < classInfo.Constructor.Parameters.Count; i++)

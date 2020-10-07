@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using Mmu.Mlvsh.Testing.Application.Areas.UnitTests.Common.ClassInformations.Services;
 using Mmu.Mlvsh.Testing.Application.Areas.UnitTests.SetupTestClass.Services.Servants;
 
@@ -23,14 +24,13 @@ namespace Mmu.Mlvsh.Testing.Application.Areas.UnitTests.SetupTestClass.Services.
 
             var str = _testSetupWriter.WriteSetup(classInfo);
 
-            // Load constructor metadata from filepaht
+            File.WriteAllText(@"C:\Users\mlm\Desktop\Test.cs", str);
+
             // Create Structure
             // Per service, one mock field
             // create sut
             // pass mock objects to constructor
             // Save construct to Zwischenablage
-
-            throw new NotImplementedException();
         }
     }
 }
