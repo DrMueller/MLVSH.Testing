@@ -1,5 +1,4 @@
-﻿using System;
-using System.IO;
+﻿using System.Windows.Forms;
 using Mmu.Mlvsh.Testing.Application.Areas.UnitTests.Common.ClassInformations.Services;
 using Mmu.Mlvsh.Testing.Application.Areas.UnitTests.SetupTestClass.Services.Servants;
 
@@ -21,16 +20,8 @@ namespace Mmu.Mlvsh.Testing.Application.Areas.UnitTests.SetupTestClass.Services.
         public void SetupTestClass(string filePath)
         {
             var classInfo = _classInfoFactory.Create(filePath);
-
             var str = _testSetupWriter.WriteSetup(classInfo);
-
-            File.WriteAllText(@"C:\Users\mlm\Desktop\Test.cs", str);
-
-            // Create Structure
-            // Per service, one mock field
-            // create sut
-            // pass mock objects to constructor
-            // Save construct to Zwischenablage
+            Clipboard.SetText(str);
         }
     }
 }

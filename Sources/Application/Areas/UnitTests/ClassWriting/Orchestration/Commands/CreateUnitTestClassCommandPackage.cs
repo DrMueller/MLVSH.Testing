@@ -2,6 +2,7 @@
 using System.Runtime.InteropServices;
 using System.Threading;
 using Microsoft.VisualStudio.Shell;
+using Mmu.Mlvsh.Testing.Application.Areas.UnitTests.SetupTestClass.Commands;
 
 namespace Mmu.Mlvsh.Testing.Application.Areas.UnitTests.ClassWriting.Orchestration.Commands
 {
@@ -16,7 +17,7 @@ namespace Mmu.Mlvsh.Testing.Application.Areas.UnitTests.ClassWriting.Orchestrati
         {
             await JoinableTaskFactory.SwitchToMainThreadAsync(cancellationToken);
             await CreateUnitTestClassCommand.InitializeAsync(this);
-            await Mmu.Mlvsh.Testing.Application.Areas.UnitTests.SetupTestClass.Commands.SetupTestClassCommand.InitializeAsync(this);
+            await SetupTestClassCommand.InitializeAsync(this);
         }
     }
 }

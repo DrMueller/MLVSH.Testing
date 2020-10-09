@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Mmu.Mlvsh.Testing.Application.Areas.UnitTests.ClassWriting.SubAreas.ClassInformations.Models
+namespace Mmu.Mlvsh.Testing.Application.Areas.UnitTests.Common.ClassInformations.Models
 {
     public class UsingEntry : IComparable<UsingEntry>
     {

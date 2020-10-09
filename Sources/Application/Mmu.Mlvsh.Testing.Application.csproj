@@ -82,8 +82,14 @@
     <Compile Include="Areas\UnitTests\SetupTestClass\Commands\SetupTestClassCommand.cs" />
     <Compile Include="Areas\UnitTests\SetupTestClass\Services\Implementation\TestClassSetupService.cs" />
     <Compile Include="Areas\UnitTests\SetupTestClass\Services\ITestClassSetupService.cs" />
+    <Compile Include="Areas\UnitTests\SetupTestClass\Services\Servants\IConstructorSyntaxFactory.cs" />
+    <Compile Include="Areas\UnitTests\SetupTestClass\Services\Servants\IFieldSyntaxFactory.cs" />
+    <Compile Include="Areas\UnitTests\SetupTestClass\Services\Servants\Implementation\ConstructorSyntaxFactory.cs" />
+    <Compile Include="Areas\UnitTests\SetupTestClass\Services\Servants\Implementation\FieldSyntaxFactory.cs" />
     <Compile Include="Areas\UnitTests\SetupTestClass\Services\Servants\Implementation\TestSetupWriter.cs" />
+    <Compile Include="Areas\UnitTests\SetupTestClass\Services\Servants\Implementation\ValueAligner.cs" />
     <Compile Include="Areas\UnitTests\SetupTestClass\Services\Servants\ITestSetupWriter.cs" />
+    <Compile Include="Areas\UnitTests\SetupTestClass\Services\Servants\IValueAligner.cs" />
     <Compile Include="Infrastructure\DependencyInjection\ApplicationRegistry.cs" />
     <Compile Include="Infrastructure\DependencyInjection\ApplicationServiceLocator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

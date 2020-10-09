@@ -15,6 +15,7 @@ namespace Mmu.Mlvsh.Testing.Application.Areas.UnitTests.ClassWriting.Orchestrati
         private readonly AsyncPackage _package;
 
 #pragma warning disable IDE0052 // Remove unread private members
+
         // ReSharper disable once UnusedAutoPropertyAccessor.Local
         private static CreateUnitTestClassCommand Instance { get; set; }
 #pragma warning restore IDE0052 // Remove unread private members

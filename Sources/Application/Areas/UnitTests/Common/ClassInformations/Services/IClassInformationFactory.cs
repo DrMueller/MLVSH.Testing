@@ -1,4 +1,4 @@
-﻿using Mmu.Mlvsh.Testing.Application.Areas.UnitTests.ClassWriting.SubAreas.ClassInformations.Models;
+﻿using Mmu.Mlvsh.Testing.Application.Areas.UnitTests.Common.ClassInformations.Models;
 
 namespace Mmu.Mlvsh.Testing.Application.Areas.UnitTests.Common.ClassInformations.Services
 {

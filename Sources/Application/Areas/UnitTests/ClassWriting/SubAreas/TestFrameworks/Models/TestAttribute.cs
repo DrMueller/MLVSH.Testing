@@ -2,9 +2,8 @@
 {
     public class TestAttribute
     {
-        public string Value { get; }
-
         public bool ShouldBeApplied => !string.IsNullOrEmpty(Value);
+        public string Value { get; }
 
         private TestAttribute(string value)
         {
